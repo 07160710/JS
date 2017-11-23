@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<script type="text/javascript" src="jquery-1.10.1.js"></script>
+</head>
+<body>
+<h1>制作留言板</h1>
+<ul>
+	<li>
+	<span>功夫熊猫</span>
+	<p>欢迎你</p>
+	</li>
+</ul>
+<form method="post">
+	<h2>Message</h2>
+	<label for="Name">昵称</label>
+	<input type="text" id="Name" value="你的昵称" class="text" />
+	<label for="Content">留言内容</label>
+	<textarea id="Content" class="text" rows="4">你要说的话</textarea>
+	<input type="button" value="单击这里提交留言" />
+</form>
+<script type="text/javascript">
+	$(function(){
+		$("input[type='button']").click(function() {
+			var name = $("input[type='text']").val();
+			var mess = $("textarea").val();
+			var $li1 = $("<li><span>"+name+"</span><p>"+mess+"</p></li>");
+			$("ul").append($li1);
+		});
+	});
+</script>    
+</body>
+</html>

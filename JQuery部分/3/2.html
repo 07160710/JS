@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>22222</title>
+<meta name="description" content="">
+<script type="text/javascript" src="jquery-1.8.3.js"></script>
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style type="text/css">
+	.table1{
+		background: #00a40c;
+		color: #FFF;
+		font-weight: bold;
+	}
+	.evenStyle{
+		background-color:#a5e5aa; 
+	}
+	.over{
+		background-color: #ff9;
+	}
+
+</style>
+</head>
+<body>
+<table border="1" cellpadding="0" cellspacing="0" class="list1">
+	<tr><td><input type="checkbox" /></td><td>Message1</td></tr>
+	<tr><td><input type="checkbox" /></td><td>Message2</td></tr>
+	<tr><td><input type="checkbox" /></td><td>Message3</td></tr>
+	<tr><td><input type="checkbox" /></td><td>Message4</td></tr>
+	<tr><td><input type="checkbox" /></td><td>Message5</td></tr>
+	<tr><td><input type="checkbox" /></td><td>Message6</td></tr>
+	<tr><td><input type="checkbox" /></td><td>Message7</td></tr>
+	<tr><td><input type="checkbox" /></td><td>Message8</td></tr>
+</table>
+<input type="button" value="全选或全不选" id="btn1" />
+<input type="button" value="删除" id="btn2" />
+<script type="text/javascript">
+	$(function(){
+		$("#btn1").toggle(function(){
+			$("table :checkbox").attr("checked","true");
+		},function(){
+			$("table :checkbox").removeAttr("checked");
+		});
+		$("#btn2").click(function(event) {
+			$("table input").each(function() {
+				 if($(this).attr("checked")){
+				 	$(this).parent().parent().remove();
+				 }
+			});
+		});
+		$("table.list1 tr:first").addClass("table1");
+		$("table.list1 tr:even:not(:first)").addClass('evenStyle');
+		$("table.list1 tr:not(:first)").mouseover(function(event) {
+			$(this).addClass('over');
+		}) .mouseout(function(event) {
+			$(this).removeClass('over');
+		});
+	});
+</script>  
+</body>
+</html>

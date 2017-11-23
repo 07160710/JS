@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>实训1</title>
+<style type="text/css">
+	span{
+		color:red;
+	}
+</style>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+<form action="3.html" name="form1" onsubmit="return check()">
+<table>
+	<tr><td>用户名：</td><td><input type="text" name="username" onblur="checkName()"></td><td><span id="ts"></span></td></tr>
+	<tr><td>密码：</td><td><input type="password" name="password" onblur="checkPassword()"></td><td><span id="ts1"></span></td></tr>
+	<tr><td>确认密码：</td><td><input type="password" name="affirmpwd" onblur="affirmPassword()"></td><td><span id="ts2"></span></td></tr>
+	<tr><td>电子邮箱：</td><td><input type="text" name="email" onblur="checkEmail()"></td><td><span id="ts3"></span></td></tr>
+	<tr><td>手机号码：</td><td><input type="text" name="phone" onblur="checkPhone()"></td><td><span id="ts4"></span></td></tr>
+	<tr><td>生日：</td><td><input type="text" name="birth" onblur="checkBirth()"></td><td><span id="ts5"></span></td></tr>
+	<tr><td colspan="2" align="center"><input type="submit" value="完成注册" name=""></td></tr>
+</table></form>
+
+<script type="text/javascript">
+function check(){
+	if(checkName()&&checkPassword()&&affirmPassword()&&checkEmail()&&checkPhone()&&checkBirth()){
+		alert("注册成功");
+		return true;
+	}else{
+		alert("注册失败，还有一些没填写");
+		return false;
+	}
+}
+	function checkName(){
+		var user=document.form1.username.value;
+		var reg=/^[a-zA-Z][a-zA-Z0-9]{3,15}$/;
+		var ts=document.getElementById("ts");
+		if(!reg.test(user)){
+			ts.innerHTML="用户名必须是4-16位，且第一个必须是字母";
+			return false;
+		}else{
+			ts.innerHTML="";
+			return true;
+		}
+	}
+	function checkPassword(){
+		var psd=document.form1.password.value;
+		var reg=/^[a-zA-Z0-9]{4,10}$/;
+		var ts1=document.getElementById("ts1");
+		if(!reg.test(psd)){
+			ts1.innerHTML="密码必须是4-10位";
+			return false;
+		}else{
+			ts1.innerHTML="";
+			return true;
+		}
+	}
+	function affirmPassword(){
+		var psd=document.form1.password.value;
+		var pwsd=document.form1.affirmpwd.value;
+		var reg=/^[a-zA-Z0-9]{4,10}$/;
+		var ts2=document.getElementById("ts2");
+		if(!reg.test(pwsd)){
+			ts2.innerHTML="重复密码必须为4-10位";
+			return false;
+		}else if(psd!=pwsd){
+			ts2.innerHTML="重复密码必须与原密码相同";
+			return false;
+		}
+		else{
+			ts2.innerHTML="";
+			return true;
+		}
+	}
+	function checkEmail(){
+		var email=document.form1.email.value;
+		var reg=/^[a-zA-Z]+[a-zA-Z0-9]*@([a-zA-Z0-9]+\.)+([a-zA-Z0-9]+\.)+(com|cn)$/;
+		var ts3=document.getElementById("ts3");
+		if(!reg.test(email)){
+			ts3.innerHTML="email地址必须是字母开始并且***@***.***.com或***@***.***.cn这种格式";
+			return false;
+		}else{
+			ts3.innerHTML="";
+			return true;
+		}
+	}
+	function checkPhone(){
+		var phone=document.form1.phone.value;
+		var reg=/^1\d{10}$/;
+		var ts4=document.getElementById("ts4");
+		if(!reg.test(phone)){
+			ts4.innerHTML="手机号不正确且必须为11位";
+			return false;
+		}else{
+			ts4.innerHTML="";
+			return true;
+		}
+	}
+	function checkBirth(){
+		var birth=document.form1.birth.value;
+		var reg=/^(\d{4})-(\d{1,2})-(\d{1,2})$/;
+		var ts5=document.getElementById("ts5");
+		var arr=reg.exec(birth);
+		if(!reg.test(birth)){
+			ts5.innerHTML="年份格式必须为1980-05-12或者1988-05-04";
+			return false;
+		}else if(arr[1]<1900||arr[1]>2014){
+			ts5.innerHTML="年份必须在1900到2014之间";
+			return false;
+		}else if(arr[2]<1||arr[2]>12){
+			ts5.innerHTML="月份必须在1-12月之间";
+			return false;
+		}else if(arr[3]<1||arr[3]>31){
+			ts5.innerHTML="日期必须在1-31号之间";
+			return false;
+		}else{
+			ts5.innerHTML="";
+			return true;
+		}
+	}
+
+</script>
+</body>
+</html>

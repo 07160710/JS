@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+<img src="images2/fruit.jpg" alt="" id="img1">
+<input type="checkbox" value="西瓜" name="fruit">西瓜
+<input type="checkbox" value="苹果" name="fruit">苹果
+<input type="checkbox" value="梨" name="fruit">梨
+<input type="checkbox" value="香蕉" name="fruit">香蕉
+<input type="button" value="获取图片路径" onclick="getPath()">
+<input type="button" value="喜欢的水果" onclick="getFuits()">
+<input type="button" value="修改图片路径" onclick="setPath()">
+<script type="text/javascript">
+	function getPath(){
+		var imgpath=document.getElementById('img1');
+		alert(imgpath.getAttribute("src"));
+	}
+	function getFuits(){
+		var arr=document.getElementsByName("fruit");
+		var str="";
+		for(var i=0;i<arr.length;i++){
+			if(arr[i].checked==true){
+				str+=arr[i].getAttribute("value")+"\n";
+			}
+		}
+		alert(str);
+	}
+	function setPath(){
+		var img1=document.getElementById("img1");
+		img1.setAttribute("src","images2/grape.jpg");
+	}
+</script>
+    
+</body>
+</html>

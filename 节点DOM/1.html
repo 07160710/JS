@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>增加节点</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+<input id="b1" type="button" value="增加一幅图片" onclick="newNode()" />
+<input id="b2" type="button" value="复制原图" onclick="copyNode()" />
+<input id="b3" type="button" value="添加按钮" onclick="insertButton()" />
+<input id="b4" type="button" value="删除图片" onclick="deleteImg()" />
+<input id="b5" type="button" value="替换图片" onclick="replaceImg()" />
+<img src="images3/sixty1.jpg" id="sixty1" alt="水果" />
+<img src="images3/sixty2.jpg" id="sixty2" alt="果篮" />
+<script type="text/javascript">
+	function newNode(){
+		var oldNode=document.getElementById("sixty1");
+		var image=document.createElement("img");
+		image.setAttribute("src","images3/newimg.jpg");
+		document.body.appendChild(image,oldNode);
+	}
+	function insertButton(){
+		//var btns=document.getElementById("b3");
+		var btn=document.createElement("input");
+		btn.setAttribute("value","添加的button");
+		btn.setAttribute("type","button");
+
+		var oldNode=document.getElementById("sixty2");
+		document.body.insertBefore(btn,oldNode);
+	}
+	function copyNode(){
+		var image=document.getElementById("sixty2");
+		var copyImage=image.cloneNode(false);
+		document.body.appendChild(copyImage);
+	}
+	function deleteImg(){
+		var del=document.getElementById("sixty2");
+		document.body.removeChild(del);
+	}
+	function replaceImg(){
+		var oldNode=document.getElementById("sixty1");
+		var newimage=document.createElement("img");
+		newimage.setAttribute("src","images3/newimg.jpg");
+		document.body.replaceChild(newimage,oldNode);
+	}
+</script>
+</body>
+</html>

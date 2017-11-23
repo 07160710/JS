@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>实训3</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+
+<form>
+<table border="1"  >
+   请选择前端设计参考书
+  <tr><td><input type="checkbox" name="" onclick="all_check()" id="all">全选</td><td>书称</td><td>价格(元)</td><td>数量</td></tr>	
+
+  <tr><td><input type="checkbox" name="ic"  onclick="single_check()"></td><td>Javascript入门与提高</td><td>39</td><td>6</td></tr>	
+  <tr><td><input type="checkbox" name="ic"   onclick="single_check()"></td><td>Javascript DOM编程艺术</td><td>29</td><td>5</td></tr>	
+  <tr><td><input type="checkbox" name="ic"   onclick="single_check()"></td><td>精通Javascript与JQuery</td><td>49</td><td>10</td></tr>	
+  <tr><td><input type="checkbox" name="ic"   onclick="single_check()"></td><td>锋利的JQuery</td><td>36</td><td>10</td></tr>	
+  <tr><td><input type="checkbox" name="ic"   onclick="single_check()"></td><td>JQuery实战</td><td>33</td><td>3</td></tr>	
+  <tr><td><input type="checkbox" name="ic"   onclick="single_check()"></td><td>javascript权威</td><td>59</td><td>8</td></tr>	
+  <tr><td colspan="4">删除选中的书</td></tr>	
+</table>
+
+</form>
+    
+
+    <script type="text/javascript">
+	
+
+  function all_check(){
+
+  	var arr=document.getElementsByName("ic");
+  	for(var i=0;i<arr.length;i++){
+  		if(document.getElementById("all").checked==true){
+  			arr[i].checked=true;
+  		}
+  	else{
+  		arr[i].checked=false;
+  	}
+  }
+
+}
+
+  function single_check(){
+
+  	var arr=document.getElementsByName("ic");
+  	var j=0;
+  	for(var i=0;i<arr.length;i++){
+  		if(arr[i].checked==true){
+  			j=j+1;
+  		}
+  	}
+  	if(j==arr.length){
+  		document.getElementById("all").checked=true;
+  	}
+  	else {
+  		document.getElementById("all").checked=false;
+  	}
+ 
+
+}
+
+
+
+
+
+</script>
+</body>
+</html>

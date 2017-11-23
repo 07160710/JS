@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>DOM</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+<table border="1" id="tb1">
+	<tr><td>张山</td><td>20</td></tr>
+	<tr><td>李思</td><td>21</td></tr>
+</table>
+<input type="button" value="谁" onclick="getDom()">
+<script type="text/javascript">
+	function getDom(){
+		var tb1=document.getElementById("tb1");
+		var arr=tb1.getElementsByTagName("tr");
+		alert(arr[1].firstChild.innerHTML);
+	}
+</script>
+</body>
+</html>

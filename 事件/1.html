@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>1</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body onclick="alert('body')">
+<div onclick="alert('div')">
+<input type="button" id="ib1" value="test1" onclick="test1()" />
+<input type="button" id="ib2" value="test2" />
+<input type="button" id="ib3" value="test3" />
+</div>
+<a href="www.baidu.com" onclick="test4()">test4</a>
+<script type="text/javascript">
+	function test1(){
+		alert("我来了");
+		var e=event || window.event;
+		if(e.stopPropagation){
+			e.stopPropagation();
+		}else{
+			e.cancelBubble=true;
+		}
+	}
+	function test2(){
+		alert("我来了2");
+	}
+	function test3(){
+		alert("我来了3");
+	}
+	var ib2=document.getElementById("ib2");
+	ib2.onclick=test2;
+	//ib2.onclick=null;
+
+	var ib3=document.getElementById("ib3");
+	// ib3.attachEvent("onclick",test2);
+	// ib3.attachEvent("onclick",test3);
+	// ib3.detachEvent("onclick",test2);
+	if(ib3.addEventListener){
+		ib3.addEventListener("click",test2,false);
+		ib3.addEventListener("click",test3,false);
+	}else if(ib3.attachEvent){
+		ib3.attachEvent("onclick",test2);
+		ib3.attachEvent("onclick",test3);
+		ib3.detachEvent("onclick",test2);
+	}
+	function test4(){
+		alert("我来了4");
+		var e=event || window.event;
+		if(e.returnValue){
+			e.returnValue=false;
+		}else{
+			e.preventDefault();
+		}
+	}
+</script>
+</body>
+</html>

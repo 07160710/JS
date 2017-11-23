@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>添加节点</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+<table id="table1">
+	<tr>
+		<td>商品</td>
+		<td>价格</td>
+	</tr>
+	<form action="" name="myform">
+		<input type="text" name="text1" />
+		<input type="text" name="text2" />
+		<input type="button" value="添加订单" onclick="insert()" />
+	</form>
+	<script type="text/javascript">
+	function insert(){
+	var tr=document.createElement("tr");
+	var td1=document.createElement("td");
+	var td2=document.createElement("td");
+	var txt1=document.createTextNode(document.myform.text1.value);
+	var txt2=document.createTextNode(document.myform.text2.value);
+	td1.appendChild(txt1);
+	td2.appendChild(txt2);
+	tr.appendChild(td1);
+	tr.appendChild(td2);
+	var	table1=document.getElementById("table1");
+	table1.appendChild(tr);
+}
+	</script>
+</table>
+</body>
+</html>

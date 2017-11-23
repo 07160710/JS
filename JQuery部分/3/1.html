@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>111</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<script type="text/javascript" src="jquery-1.8.3.js"></script>
+</head>
+<body>
+ <ul>
+ 	<li>第一克隆</li>
+ 	<li>第二删除</li>
+ 	<li>第三替换</li>
+ </ul>
+ <script type="text/javascript">
+        $(function(){
+        	var $li = $("<li>第四追加</li>");
+        	$("ul").append($li);
+        	$("ul li:eq(1)").click(function(event) {
+        		$(this).remove();
+        	});
+        	$("ul li:eq(0)").click(function(event) {
+        		var $newli = $(this).clone();
+        		$("ul").append($newli);
+        	});
+        	$("ul li:eq(2)").click(function(event) {
+        		$("ul li:eq(2)").replaceWith("<li>我是被替换的</li>");
+        	});
+        });
+ </script>   
+</body>
+</html>

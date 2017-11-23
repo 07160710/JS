@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>111</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<style type="text/css">
+	#div1 img{
+		width: 30px;
+		height: 30px;
+		margin-left: 20px;
+	}
+	.alpha{
+		opacity: 0.4;
+		filter:alpha(opacity=40);
+	}
+</style>
+<script type="text/javascript" src="jquery-1.10.1.js"></script>
+</head>
+<body>
+<div>
+    <img src="img/test1.jpg" alt="" id="img1">
+    <div id="div1">
+    	<img src="img/test1.jpg" alt="">
+    	<img src="img/test2.jpg" alt="">
+    	<img src="img/test3.jpg" alt="">
+    	<img src="img/test4.jpg" alt="">
+    </div>
+</div>
+<script type="text/javascript">
+	$(function(){
+		$("#div1 img").addClass('alpha');
+		$("#div1 img:eq(0)").removeClass('alpha');
+		$("#div1 img").mouseover(function(){
+			var path=$(this).attr("src");
+			$("#img1").attr("src",path);
+			$(this).removeClass('alpha').siblings().addClass('alpha');
+		});
+	});
+</script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>test</title>
+<style type="text/css">
+	*{
+		margin: 0px;
+		padding: 0px;
+	}
+	#div1{
+		width: 800px;
+		height: 280px;
+		border: solid 0px blue;
+		margin: 0px auto;
+		position: relative; 
+	}
+	#div1 div{
+		position: absolute;
+	}
+	#div1 .left{
+		width: 50px;
+		height:100px;
+		background: url("images/spirte.png") no-repeat left top;
+		left: 0px;
+		top: 90px;
+		background-color: black;
+		opacity: 0.4;
+		filter: alpha(opacity=40);
+	}
+	#div1 .right{
+		width: 50px;
+		height:100px;
+		background: url("images/spirte.png") no-repeat right top;
+		right: 0px;
+		top: 90px;
+		background-color: black;
+		opacity: 0.4;
+		filter: alpha(opacity=40);
+	}
+</style>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+    <div id="div1">
+    	<img src="images/01.jpg" alt="" id="pic">
+    	<div class="left" onclick="showPre()"></div>
+    	<div class="right" onclick="showNext()"></div>
+    </div>
+    <script type="text/javascript">
+    	var picsArr = new Array();
+    	picsArr[0] = "images/01.jpg";
+    	picsArr[1] = "images/02.jpg";
+    	picsArr[2] = "images/03.jpg";
+        picsArr[3] = "images/04.jpg";
+        picsArr[4] = "images/05.jpg";
+        var timer,index = 0;
+        window.onload = showPic;
+function showPic(){
+	document.getElementById("pic").src=picsArr[index];
+	if(index<(picsArr.length-1))
+		index++;
+	else
+		index=(index+1)%picsArr.length;
+	timer=setTimeout("showPic()",2000);
+}
+function showPrepic(){
+	if(index>0){
+		index--;
+	}else{
+		index=4;
+	}
+	document.getElementById("pic").src=picsArr[index];
+	timer=setTimeout("showPrepic()",2000);
+}
+function showNext(){
+	clearTimeout(timer);
+	showPic();
+}
+function showPre(){
+	clearTimeout(timer);
+	showPrepic();
+}
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>实训2</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+    <input type="button" value="删除第一幅图片" onclick="del()" /><br/>
+    <img src="images/del_1.jpg" alt="图一" id="first" />
+    <img src="images/del_2.jpg" alt="图二" id="second" />
+    <script type="text/javascript">
+    function del(){
+    	var delNode=document.getElementById("first");
+    	if(delNode){
+    		document.body.removeChild(delNode);
+    	}
+    }
+    </script>
+</body>
+</html>
